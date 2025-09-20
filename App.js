@@ -17,4 +17,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  button: {
+    marginTop: 20,
+  },
 });

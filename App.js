@@ -4,7 +4,6 @@ import { StyleSheet, Text, View,Button } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>The react native great text component!</Text>
       
     </View>
   );

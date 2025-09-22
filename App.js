@@ -20,7 +20,7 @@ export default function App() {
       <Button title='Add Goal' />
       </View>
       <View style={styles.goalsContainer}>
-      <Text>{enteredTextGoal.join(', ')}</Text>
+      <Text>{courseGoals.map((goal,index) => <Text key={index}>{goal}</Text>)}</Text>
       </View>
     </View>
   );

@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text,TextInput, View,Button } from 'react-native';
-
+import { useState } from 'react';
 
 export default function App() {
-
+  const [enteredTextGoal, setEnteredTextGoal] = useState('');
+  const [courseGoals,setCourseGoals]= useState([]);
   
   return (
     <View style={styles.appContainer}>
@@ -12,7 +13,7 @@ export default function App() {
       <Button title='Add Goal' />
       </View>
       <View style={styles.goalsContainer}>
-      <Text>{}</Text>
+      <Text>{enteredTextGoal.join(', ')}</Text>
       </View>
     </View>
   );

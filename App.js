@@ -5,7 +5,14 @@ import { useState } from 'react';
 export default function App() {
   const [enteredTextGoal, setEnteredTextGoal] = useState('');
   const [courseGoals,setCourseGoals]= useState([]);
-  
+  const goalInputHandler = (enteredText) => {
+    setEnteredTextGoal(enteredText);
+  };
+
+  const addGoalHandler = () => {
+    setCourseGoals((currentGoals) => [...currentGoals, enteredTextGoal]);
+    setEnteredTextGoal('');
+  };
   return (
     <View style={styles.appContainer}>
       <View style={styles.inputContainer}>

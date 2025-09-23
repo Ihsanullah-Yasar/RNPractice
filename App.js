@@ -31,7 +31,7 @@ export default function App() {
         </ScrollView> */}
         <FlatList data={courseGoals} renderItem={(itemData)=>{
           return (
-          <GoalItem />
+          <GoalItem text={itemData.item.text} />
           )
         }} keyExtractor={(item,index)=> item.id }/>
 

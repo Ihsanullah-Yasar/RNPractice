@@ -26,26 +26,29 @@ export default function App() {
   }
 
   return (
-    <View style={styles.appContainer}>
-      <Button onPress={startAddGoalHandler} title='Add New Goal' color="#5e0acc" />
-      <GoalInput addGoalHandler={addGoalHandler} visible={modalIsVisible} onCancel={endAddGoalHandler} />
-      <View style={styles.goalsContainer}>
-        <View>  
-          {/* <ScrollView>
-          {courseGoals.map((goal,index) =>(
-            <View key={index} style={styles.goalItem}>
-              <Text style={styles.goalText}>{goal}</Text>
-            </View>
-          ))}
-          </ScrollView> */}
-          <FlatList data={courseGoals} renderItem={(itemData)=>{
-            return (
-            <GoalItem GoalItem={itemData.item} onDeleteItem={deleteGoalHandler} />
-            )
-          }} keyExtractor={(item,index)=> item.id }/>
+    <>
+    <StatusBar style='light' />
+      <View style={styles.appContainer}>
+        <Button onPress={startAddGoalHandler} title='Add New Goal' color="#9660dbff" />
+        <GoalInput addGoalHandler={addGoalHandler} visible={modalIsVisible} onCancel={endAddGoalHandler} />
+        <View style={styles.goalsContainer}>
+          <View>  
+            {/* <ScrollView>
+            {courseGoals.map((goal,index) =>(
+              <View key={index} style={styles.goalItem}>
+                <Text style={styles.goalText}>{goal}</Text>
+              </View>
+            ))}
+            </ScrollView> */}
+            <FlatList data={courseGoals} renderItem={(itemData)=>{
+              return (
+              <GoalItem GoalItem={itemData.item} onDeleteItem={deleteGoalHandler} />
+              )
+            }} keyExtractor={(item,index)=> item.id }/>
+          </View>
         </View>
       </View>
-    </View>
+    </>
   );
 }
 

@@ -1,14 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text,TextInput, View,Button,ScrollView, FlatList } from 'react-native';
+import { StyleSheet, View,Button, FlatList } from 'react-native';
 import { useState } from 'react';
 import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
 
 export default function App() {
   const [courseGoals,setCourseGoals]= useState([]);
-
+  const [modalIsVisible,setModalIsVisible] = useState(false);
   const addGoalHandler = (enteredTextGoal) => {
     setCourseGoals((currentGoals) => [...currentGoals, {text:enteredTextGoal,id : Math.random().toString()}]);
+    endAddGoalHandler();
   };
 
   const deleteGoalHandler=(id) =>{
@@ -16,9 +17,18 @@ export default function App() {
       return currentCourseGoals.filter((goal)=> goal.id !==id)
     })
   }
+
+  const startAddGoalHandler= ()=>{
+    setModalIsVisible(true);
+  }
+  const endAddGoalHandler=()=>{
+    setModalIsVisible(false);
+  }
+
   return (
     <View style={styles.appContainer}>
-      <GoalInput addGoalHandler={addGoalHandler} />
+      <Button onPress={startAddGoalHandler} title='Add New Goal' color="#5e0acc" />
+      <GoalInput addGoalHandler={addGoalHandler} visible={modalIsVisible} onCancel={endAddGoalHandler} />
       <View style={styles.goalsContainer}>
         <View>  
           {/* <ScrollView>
